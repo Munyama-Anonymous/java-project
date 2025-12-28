@@ -1,0 +1,71 @@
+// Program for grading students
+/*
+*Name: Joel Githara
+*Reg No: J77-10542-2024
+*/
+// File: Student.java
+class Student {
+    private String name;
+    private double marks;
+    
+    // Constructor
+    public Student(String name, double marks) {
+        this.name = name;
+        this.marks = marks;
+    }
+    
+    // Display details method
+    public void displayDetails() {
+        System.out.println("Student Name: " + name);
+        System.out.println("Marks: " + marks);
+    }
+    
+    // Getter for marks
+    public double getMarks() {
+        return marks;
+    }
+}
+
+// File: GradeCalculator.java
+class GradeCalculator {
+    // Calculate grade method
+    public static String calculateGrade(double marks) {
+        if (marks >= 90) {
+            return "A";
+        } else if (marks >= 75) {
+            return "B";
+        } else if (marks >= 50) {
+            return "C";
+        } else {
+            return "D";
+        }
+    }
+}
+
+// File: MainApp.java
+import java.util.Scanner;
+
+public class MainApp {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Accept user input
+        System.out.print("Enter student name: ");
+        String name = scanner.nextLine();
+        
+        System.out.print("Enter student marks: ");
+        double marks = scanner.nextDouble();
+        
+        // Create Student object
+        Student student = new Student(name, marks);
+        
+        // Calculate grade
+        String grade = GradeCalculator.calculateGrade(marks);
+        
+        // Display details
+        student.displayDetails();
+        System.out.println("Grade: " + grade);
+        
+        scanner.close();
+    }
+}

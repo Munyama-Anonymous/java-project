@@ -1,0 +1,53 @@
+// Program for a banking system
+/*
+*Name: Joel Githara
+*Reg No: J77-10542-2024
+*/
+import java.util.Scanner;
+class BankAccount {
+    protected double balance;
+    
+    // Deposit method
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+        }
+    }
+    
+    // Get balance
+    public double getBalance() {
+        return balance;
+    }
+}
+
+// File: SavingsAccount.java
+import java.util.Scanner;
+
+class SavingsAccount extends BankAccount {
+    // Add interest method
+    public void addInterest() {
+        double interest = balance * 0.05;
+        balance += interest;
+    }
+}
+
+// File: BankApp.java
+public class BankApp {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        SavingsAccount account = new SavingsAccount();
+        
+        // Deposit amount
+        System.out.print("Enter deposit amount: ");
+        double depositAmount = scanner.nextDouble();
+        account.deposit(depositAmount);
+        
+        // Apply interest
+        account.addInterest();
+        
+        // Display final balance
+        System.out.println("Final balance: $" + account.getBalance());
+        
+        scanner.close();
+    }
+}

@@ -1,0 +1,45 @@
+// Program to keep track on vehicles
+/*
+*Name: Joel Githara
+*Reg No: J77-10542-2024
+*/
+import java.util.Scanner;
+class Vehicle {
+    protected String brand;
+    protected int year;
+    
+    // Constructor
+    public Vehicle(String brand, int year) {
+        this.brand = brand;
+        this.year = year;
+    }
+}
+
+// File: Car.java
+class Car extends Vehicle {
+    private int seats;
+    
+    // Constructor
+    public Car(String brand, int year, int seats) {
+        super(brand, year);
+        this.seats = seats;
+    }
+    
+    // Display details
+    public void displayDetails() {
+        System.out.println("Brand: " + brand);
+        System.out.println("Year: " + year);
+        System.out.println("Seats: " + seats);
+    }
+}
+
+// File: CarRental.java
+public class CarRental {
+    public static void main(String[] args) {
+        // Create Car object
+        Car car = new Car("Toyota", 2022, 5);
+        
+        // Display details
+        car.displayDetails();
+    }
+}

@@ -1,0 +1,51 @@
+// Program to compute discounts on products
+/*
+*Name: Joel Githara
+*Reg No: J77-10542-2024
+ 
+*/
+import java.util.Scanner;
+
+public class Product {
+    private String name;
+    private double price;
+    
+    // Constructor
+    public Product(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
+    
+    // Apply discount method
+    public void applyDiscount(double percentage) {
+        if (percentage > 0 && percentage <= 100) {
+            double discountAmount = price * (percentage / 100);
+            price -= discountAmount;
+        }
+    }
+    
+    // Get price method
+    public double getPrice() {
+        return price;
+    }
+    
+    // Main method
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Create a Product object
+        Product product = new Product("Laptop", 1200.00);
+        
+        // Ask for discount percentage
+        System.out.print("Enter discount percentage: ");
+        double discount = scanner.nextDouble();
+        
+        // Apply discount
+        product.applyDiscount(discount);
+        
+        // Display new price
+        System.out.println("New price: $" + product.getPrice());
+        
+        scanner.close();
+    }
+}

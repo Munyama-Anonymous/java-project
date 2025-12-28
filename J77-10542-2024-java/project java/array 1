@@ -1,0 +1,44 @@
+// 
+/*
+*Name: Joel Githara
+*Reg No: J77-10542-2024
+*/
+public class ThreeDArraySales {
+    public static void main(String[] args) {
+        // Declare and initialize 3D array
+        int[][][] sales = {
+            {
+                {10, 20, 30},
+                {15, 25, 35}
+            },
+            {
+                {5, 10, 15},
+                {8, 16, 24}
+            }
+        };
+        
+        // Print all elements
+        System.out.println("Sales Data:");
+        for (int branch = 0; branch < sales.length; branch++) {
+            System.out.println("Branch " + (branch + 1) + ":");
+            for (int month = 0; month < sales[branch].length; month++) {
+                System.out.print("Month " + (month + 1) + ": ");
+                for (int product = 0; product < sales[branch][month].length; product++) {
+                    System.out.print(sales[branch][month][product] + " ");
+                }
+                System.out.println();
+            }
+            System.out.println();
+        }
+        
+        // Calculate total sales for Branch 1
+        int totalSalesBranch1 = 0;
+        for (int month = 0; month < sales[0].length; month++) {
+            for (int product = 0; product < sales[0][month].length; product++) {
+                totalSalesBranch1 += sales[0][month][product];
+            }
+        }
+        
+        System.out.println("Total sales for Branch 1: " + totalSalesBranch1);
+    }
+}

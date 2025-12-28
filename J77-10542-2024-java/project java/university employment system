@@ -1,0 +1,69 @@
+// Program for university employment 
+/*
+*Name: Joel Githara
+*Reg No: J77-10542-2024
+*/
+import java.util.Scanner;
+// File: Employee.java
+class Employee {
+    protected String name;
+    protected double salary;
+    
+    // Constructor
+    public Employee(String name, double salary) {
+        this.name = name;
+        this.salary = salary;
+    }
+    
+    // Display info method
+    public void displayInfo() {
+        System.out.println("Name: " + name);
+        System.out.println("Salary: $" + salary);
+    }
+}
+
+// File: Lecturer.java
+import java.util.Scanner;
+
+class Lecturer extends Employee {
+    private String department;
+    
+    // Constructor
+    public Lecturer(String name, double salary, String department) {
+        super(name, salary);
+        this.department = department;
+    }
+    
+    // Override displayInfo method
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("Department: " + department);
+    }
+}
+
+// File: UniversitySystem.java
+public class UniversitySystem {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Accept input
+        System.out.print("Enter name: ");
+        String name = scanner.nextLine();
+        
+        System.out.print("Enter salary: ");
+        double salary = scanner.nextDouble();
+        scanner.nextLine(); // Consume newline
+        
+        System.out.print("Enter department: ");
+        String department = scanner.nextLine();
+        
+        // Create Lecturer object
+        Lecturer lecturer = new Lecturer(name, salary, department);
+        
+        // Display information
+        lecturer.displayInfo();
+        
+        scanner.close();
+    }
+}
